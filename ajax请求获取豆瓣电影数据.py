@@ -28,7 +28,7 @@ def get_content(request):
     return content
 
 
-def down_load(page, content):
+def down_load_json(page, content):
     with open('豆瓣第' + str(page) + '页.json', 'w', encoding='utf-8') as f:
         f.write(content)
 
@@ -39,5 +39,5 @@ if __name__ == '__main__':
     for page in range(start_page, end_page + 1):
         request = create_request(page)
         content = get_content(request)
-        if len(content)> 0:
-            down_load(page, content)
+        if len(content) > 0:
+            down_load_json(page, content)
